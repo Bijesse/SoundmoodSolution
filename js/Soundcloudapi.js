@@ -10,7 +10,7 @@ SC.initialize({
 
 // initiate auth popup
 SC.connect(function () {
-  SC.get('/me', function(me) { 
+  SC.get('/me', function (me) {
     $('.text-muted').html('Hello, ' + me.username);
   });
 });
@@ -27,18 +27,17 @@ function playTrack (trackid) {
 
 function searchTracks (song) {
   SC.get('/tracks', { q: song }, function (tracks) {
-  var songs = tracks;
-  var randomSongNumber = Math.floor(Math.random() * (songs.length - 1));
-  var song = songs[randomSongNumber];
-  playTrack(song.id);
-  $('#songtitle').html(song.user.username + " " + song.title);
-});
+    var songs = tracks;
+    var randomSongNumber = Math.floor(Math.random() * (songs.length - 1));
+    var song = songs[randomSongNumber];
+    playTrack(song.id);
+    $('#songtitle').html(song.user.username + '' + song.title);
+  });
 }
 
 $('#rndbtn').on('click', function () {
   var mood = giveMeRandomWord();
   changeColor(getColor(mood));
-  search_flickr(mood);
   $('#moodstatus').html('It sounds like you are in a ' + mood + ' mood!!');
   searchTracks(mood);
 });
@@ -46,7 +45,6 @@ $('#rndbtn').on('click', function () {
 $('#go').on('click', function () {
   var mood=$('#mood').val();
   changeColor(getColor(mood));
-  search_flickr(mood);
   $('#moodstatus').html('It sounds like you are in a ' + mood +  ' mood!!');
   searchTracks(mood);
 });
