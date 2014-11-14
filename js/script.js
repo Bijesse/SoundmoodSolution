@@ -15,6 +15,27 @@ var colorMap = {
     "sad": ["330000", "000033", "003300"]
 }
 
+function changeColor(x) {
+   var chng = $('.jumbotron').css('background-color', x)
+}
+
+ $( document ).ready(function() {
+    $("#mood").typeahead({ source:listOfEmotions });
+    var button = document.getElementById("go");
+    button.addEventListener("click", rndm);
+});
+
+function rndm() {
+    var text = document.getElementById("mood").value;
+    if (text.length > 1){
+        changeColor(getColor(text));
+        search_flickr(text);
+    }
+
+}
+
+
+
 function getColor(word) {
     if (moodMap[word]) {
         var feeling = moodMap[word];
@@ -43,12 +64,12 @@ function giveMeRandomWord() {
 function search_flickr(word) {
     // build the url to search for flickr images tagged with the word (mood)
     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&tags=" + word + "&api_key=18b47bea4ecf73fd7b7b2e4936f49b4d&format=json";
-    
+
     // send a request to the flickr API for their pictures tagged with the word (mood)
     $.getJSON(url, function (data) {
         // JQuery is acting strangely and failing, so the success function is never called
     }).fail(function (returnObj) {
-        
+
         // the failed response actually has the data we want.... weird
         // but we have to extract it...and convert it to valid JSON
         returnObj = returnObj.responseText;
@@ -59,16 +80,16 @@ function search_flickr(word) {
 
         // the pictures are an array at returnObj.photos.photo
         var array = returnObj.photos.photo;
-        
+
         // pick 1 picture element randomly from this array
         var listLength = array.length;
         var randomNumber = Math.floor(Math.random() * (listLength - 1));
         var randPic = array[randomNumber];
-        
+
         // build the url of the picture from the data on the randPic object
         var pictureUrl = "http://farm"+ randPic.farm +".staticflickr.com/"+ randPic.server +"/"+ randPic.id+"_"+ randPic.secret +".jpg";
-    
-        // select the image html element and set the src of the image to the new url 
+
+        // select the image html element and set the src of the image to the new url
         document.getElementById("pic").src = pictureUrl;
     });
 }
