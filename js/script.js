@@ -22,7 +22,7 @@ $(document).ready(function () {
   button.addEventListener('click', rndm);
 });
 
-function changeColor(x) {
+function changeColor (x) {
   $('.jumbotron').css('background-color', x);
 }
 
@@ -32,7 +32,6 @@ function rndm () {
     changeColor(getColor(text));
   }
 }
-
 
 function getColor (word) {
   if (moodMap[word]) {

@@ -11,7 +11,7 @@ SC.initialize({
 // initiate auth popup
 SC.connect(function () {
   SC.get('/me', function (me) {
-    $('.text-muted').html('Hello, ' + me.username);
+    $('#hello').html('Hello, ' + me.username);
   });
 });
 
@@ -35,7 +35,7 @@ function searchTracks (song) {
   });
 }
 
-$('#rndbtn').on('click', function () {
+$('#random').on('click', function () {
   var mood = giveMeRandomWord();
   changeColor(getColor(mood));
   $('#moodstatus').html('It sounds like you are in a ' + mood + ' mood!!');
