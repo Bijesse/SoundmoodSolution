@@ -25,6 +25,28 @@ SC.connect(function () {
   });
 });
 
+// ===========================
+//
+//        Document ready
+//
+// ===========================
+//
+// # Document ready
+//
+// $(document).ready() runs once the page DOM is ready for JavaScript
+// to execute. A page can't be manipulated safely until the document is ready.
+//
+// Add click handlers to 'go' and 'random' buttons here.
+//
+$(document).ready(function () {
+  var goButton = document.getElementByID('go');
+  goButton.addEvenListener('click', goClicked);
+
+  var randomButton = document.getElementByID('random');
+  randomButton.addEvenListener('click', randomClicked);
+});
+
+
 
 // ===========================
 //
@@ -41,11 +63,11 @@ var currentSong;
 // Get the user's mood and play a song that matches that mood.
 // (Optional: change the color of the jumbotron)
 //
-$('#go').on('click', function () {
+function goClicked () {
   var mood = $('#mood').val();
   updateJumboTron(mood);
   searchTracks(mood);
-});
+}
 
 //
 // # Search soundcloud tracks
@@ -108,11 +130,11 @@ function updateJumboTron (mood) {
 //
 // Pick a mood at random from moodList and find a track for that mood.
 //
-$('#random').on('click', function () {
+function randomClicked () {
   var mood = randomMood();
   updateJumboTron(mood);
   searchTracks(mood);
-});
+}
 
 //
 // # Random Mood
@@ -208,15 +230,5 @@ function randomColor () {
 //
 // 2. Typeahead
 //
-
+// Add to $(document).ready: $('#mood').typeahead({ source: moodList });
 //
-// # Document ready
-//
-// $(document).ready() runs once the page DOM is ready for JavaScript
-// to execute. A page can't be manipulated safely until the document is ready.
-//
-// Add a typeahead to the mood input field using the moodList as a source.
-//
-$(document).ready(function () {
-  $('#mood').typeahead({ source: moodList });
-});
