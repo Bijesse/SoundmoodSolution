@@ -49,12 +49,28 @@ $(document).ready(function () {
 });
 
 
-
 // ===========================
 //
 //        Play a song
 //
 // ===========================
+//
+// # Play a track
+//
+// Play a track using SC.stream from Souncdloud SDK
+//
+function playOneTrack () {
+  SC.stream('/tracks/293', function (sound) {
+    sound.play();
+  });
+}
+
+
+// ==========================================
+//
+//       Play a song for the user's mood
+//
+// ==========================================
 
 // The song that is currently playing
 var currentSong;
