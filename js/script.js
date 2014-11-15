@@ -15,15 +15,9 @@ var moodList = ['sad', 'afraid', 'abandoned', 'acceptance', 'adoration', 'affect
 // ==============================
 
 SC.initialize({
-  client_id: '5aa8e389ba4e24b6106af5159ab3e344',
-  redirect_uri: 'https://soundmoodsolution-noidontdig-1.c9.io/index.html.'
+  client_id: '5aa8e389ba4e24b6106af5159ab3e344'
 });
 
-SC.connect(function () {
-  SC.get('/me', function (me) {
-    $('#hello').html('Hello, ' + me.username);
-  });
-});
 
 // ===========================
 //
