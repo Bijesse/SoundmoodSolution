@@ -72,8 +72,9 @@ var currentSong;
 //
 // # 'Go' button click handler
 //
-// Get the user's mood and play a song that matches that mood.
-// (Optional: change the color of the jumbotron)
+// 1. Get the user's mood from the form
+// 2. Search Souncloud for a song for the mood
+// 3. Update jumbotron #moodstatus   to dipsplay the mood
 //
 function goClicked () {
   var mood = $('#mood').val();
@@ -84,8 +85,10 @@ function goClicked () {
 //
 // # Search soundcloud tracks
 //
-// Search soundcloud using the Soundcloud API for a song that
+// 1. Search soundcloud using the Soundcloud API to find a song that
 // matches the user's mood.
+// 2. Play the song
+// 3. Update jumbotron #songtitle to display the song title
 //
 // * **mood**, the user's mood.
 //
@@ -95,7 +98,7 @@ function searchTracks (mood) {
     var randomSongNumber = Math.floor(Math.random() * (songs.length - 1));
     var song = songs[randomSongNumber];
     playTrack(song.id);
-    $('#songtitle').html(song.user.username + '' + song.title);
+    $('#songtitle').text(song.user.username + '' + song.title);
   });
 }
 
@@ -126,7 +129,7 @@ function playTrack (trackid) {
 // * **mood**, the user's mood
 //
 function updateJumboTron (mood) {
-  $('#moodstatus').html('It sounds like you are in a ' + mood +  ' mood!!');
+  $('#moodstatus').text('It sounds like you are in a ' + mood +  ' mood!!');
   changeColor(getColor(mood));
 }
 
