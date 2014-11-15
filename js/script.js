@@ -44,6 +44,8 @@ $(document).ready(function () {
 
   var randomButton = document.getElementById('random');
   randomButton.addEventListener('click', randomClicked);
+
+  $('#mood').typeahead({ source: moodList });
 });
 
 
