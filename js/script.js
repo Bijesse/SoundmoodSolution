@@ -15,8 +15,8 @@ var moodList = ['sad', 'afraid', 'abandoned', 'acceptance', 'adoration', 'affect
 // ==============================
 
 SC.initialize({
-  client_id: '53e1b5c5885286f94a2f2dbe52932379',
-  redirect_uri: 'https://c9.io/jasondecastro/soundcloud/workspace/index.html'
+  client_id: '5aa8e389ba4e24b6106af5159ab3e344',
+  redirect_uri: 'https://soundmoodsolution-noidontdig-1.c9.io/index.html.'
 });
 
 SC.connect(function () {
@@ -40,10 +40,10 @@ SC.connect(function () {
 //
 $(document).ready(function () {
   var goButton = document.getElementById('go');
-  goButton.addEvenListener('click', goClicked);
+  goButton.addEventListener('click', goClicked);
 
   var randomButton = document.getElementById('random');
-  randomButton.addEvenListener('click', randomClicked);
+  randomButton.addEventListener('click', randomClicked);
 });
 
 
