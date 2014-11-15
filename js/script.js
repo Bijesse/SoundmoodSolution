@@ -39,10 +39,10 @@ SC.connect(function () {
 // Add click handlers to 'go' and 'random' buttons here.
 //
 $(document).ready(function () {
-  var goButton = document.getElementByID('go');
+  var goButton = document.getElementById('go');
   goButton.addEvenListener('click', goClicked);
 
-  var randomButton = document.getElementByID('random');
+  var randomButton = document.getElementById('random');
   randomButton.addEvenListener('click', randomClicked);
 });
 
