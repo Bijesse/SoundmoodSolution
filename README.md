@@ -1,7 +1,12 @@
 Soundmood
 =========
 
-ScriptEd Year 2 Curriculum project - Using the Souncloud API
+ScriptEd Year 2 Curriculum project - Using the Souncloud API.
+
+* Project starter code: [noidontdig/soundmood](https://github.com/noidontdig/Soundmood)
+* [Lesson plan](https://docs.google.com/document/d/1IeTTK9_MxCYAawwi6e-yiY5fqAMWhgTsAaeh6_57g8s/edit?usp=sharing)
+* [Slides](https://docs.google.com/presentation/d/1slUmojmBEnyztO-bonupjulHp5lSIjlC3HNwqP4raTs/edit?usp=sharing)
+
 
 ### Project description
 
